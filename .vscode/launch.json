@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Отладка Telegram-бота",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder}/bot.py",
+        "console": "integratedTerminal",
+        "cwd": "${workspaceFolder}",
+        "justMyCode": true
+      }
+    ]
+  }
+  
