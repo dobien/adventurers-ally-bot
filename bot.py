@@ -1,13 +1,18 @@
+import os
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
-# Захардкоженный токен вашего бота
-TELEGRAM_TOKEN = 'ваш_токен_здесь'
+# Получение токена из переменной окружения
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Привет! Я ваш бот.')
 
 def main():
+    if TELEGRAM_TOKEN is None:
+        print("Ошибка: переменная окружения TELEGRAM_TOKEN не установлена.")
+        return
+
     updater = Updater(TELEGRAM_TOKEN)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
